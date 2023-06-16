@@ -1,0 +1,95 @@
+@import "../../styles";
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  @include center();
+
+  & > form {
+    width: 400px;
+    max-width: 95vw;
+    background-color: rgb(18, 2, 69);
+    box-shadow: inset 0px 0px 4px rgba($color: $light-gray, $alpha: 0.4),
+      0px 0px 20px rgba($color: $light-gray, $alpha: 0.4);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    @include flex(column, stretch, flex-start, 10px);
+
+    & > h1 {
+      @include font(3rem, 500);
+      padding-bottom: 10px;
+      text-align: center;
+      color: rgba($color: $light-gray, $alpha: 0.9);
+    }
+
+    & > label {
+      @include flex(column, stretch, flex-start, 5px);
+
+      & > span {
+        @include font(1.7rem);
+        color: rgba($color: $light-gray, $alpha: 0.7);
+      }
+
+      & > div {
+        @include flex(row, center, flex-start, 10px);
+        & > textarea,
+        & > input {
+          resize: none;
+          outline: none;
+          border: 1px solid rgba($color: $link, $alpha: 0.4);
+          padding: 10px;
+          background-color: transparent;
+          color: rgba($color: $light-gray, $alpha: 0.7);
+          border-radius: 2px;
+          @include font(1.4rem);
+          width: 100%;
+          flex: 1;
+          &[type="file"]::-webkit-file-upload-button {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            border: 1px solid rgba($color: $link, $alpha: 0.6);
+          }
+        }
+        & > textarea {
+          height: 10rem;
+        }
+
+        & > img {
+          @include avatar(4rem);
+        }
+      }
+    }
+
+    & > button {
+      background-color: rgba($color: $link, $alpha: 0.7);
+      padding: 8px 0;
+      @include font(1.4rem, 500);
+      border: none;
+      text-transform: uppercase;
+      color: rgba($color: $light-gray, $alpha: 0.7);
+      cursor: pointer;
+
+      &:hover {
+        filter: saturate(2);
+      }
+    }
+  }
+
+  & > button {
+    @include position(fixed, 3rem, 3rem);
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgba($color: $light-gray, $alpha: 0.7);
+    cursor: pointer;
+    font-size: 2rem;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
